@@ -13,6 +13,27 @@ A Flask API server for separating audio files into individual stems (vocals, dru
 
 ## Installation
 
+### Docker (Recommended)
+
+1. **Build the Docker image**:
+   ```bash
+   docker build -t audio-stem-separator .
+   ```
+
+2. **Run the container**:
+   ```bash
+   docker run -p 5000:5000 audio-stem-separator
+   ```
+
+3. **Or use Docker Compose**:
+   ```bash
+   docker-compose up
+   ```
+
+The API will be available at `http://localhost:5000`
+
+### Local Installation
+
 1. **Clone or download this project**
 2. **Install Python 3.10+** (recommended: use conda or pyenv)
 3. **Install dependencies**:
@@ -37,10 +58,12 @@ pip install librosa soundfile numpy tqdm
 
 ### API Server
 
-1. **Start the API server**:
+1. **Start the API server** (if running locally):
    ```bash
    python app.py
    ```
+
+   Or if using Docker, the API is already running on port 5000.
 
 2. **Upload audio file for separation**:
    ```bash
@@ -127,6 +150,12 @@ results = separator.batch_separate("input_folder", "output_folder")
 
 ## Requirements
 
+### Docker
+- Docker and Docker Compose installed
+- At least 4GB RAM (8GB+ recommended)
+- Docker will handle all dependencies automatically
+
+### Local Installation
 - Python 3.10+
 - PyTorch 1.9+
 - CUDA-compatible GPU (recommended for faster processing)

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  stem-separator:
+    build: .
+    container_name: audio-stem-separator
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount volumes for persistent storage (optional)
+      - ./temp_uploads:/app/temp_uploads
+      - ./temp_outputs:/app/temp_outputs
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

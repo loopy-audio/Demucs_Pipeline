@@ -19,15 +19,15 @@ except ImportError:
 def test_separation():
     """Test the stem separation with ed.mp3"""
 
-    # Look for ed.mp3.mp3 in current directory
-    test_file = Path("ed.mp3.mp3")
+    # Look for creep.mp3 in current directory
+    test_file = Path("creep.mp3")
 
     if not test_file.exists():
-        print("ERROR: Test file 'ed.mp3.mp3' not found in current directory")
-        print("Please place ed.mp3.mp3 in the same folder as this script")
+        print("ERROR: Test file 'creep.mp3' not found in current directory")
+        print("Please place creep.mp3 in the same folder as this script")
         return False
 
-    print("Testing stem separation with ed.mp3.mp3")
+    print("Testing stem separation with creep.mp3")
     print(f"File size: {test_file.stat().st_size / (1024*1024):.1f} MB")
 
     # Create test output directory
@@ -50,7 +50,7 @@ def test_separation():
         print(f"\nProcessing time: {processing_time:.1f} seconds")
 
         # Check if outputs were created
-        expected_stems_dir = output_dir / "htdemucs" / "ed.mp3"
+        expected_stems_dir = output_dir / "htdemucs" / "creep"
 
         if expected_stems_dir.exists():
             mp3_stems = list(expected_stems_dir.glob("*.mp3"))
